@@ -1,0 +1,27 @@
+services:
+  db:
+    container_name: postgres_inventory_service
+    image: postgres:16.0
+    environment:
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=inventory_service
+    volumes:
+      - ./postgresql:/data/postgres
+    ports:
+      - "${POSTGRESQL_PORT}:5432"
+    networks:
+      - app
+
+
+  kafka:
+    container_name: kafka_inventory_service
+    image: apache/kafka:4.0.1
+    networks:
+      - app
+    ports:
+      - "${KAFKA_PORT}:9092"
+
+networks:
+  app:
+    driver: bridge
