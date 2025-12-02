@@ -1,5 +1,6 @@
 package com.ecommerce.OrderService.dto;
 
+import com.ecommerce.OrderService.model.OrderItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.util.List;
 @Builder
 public class PlacedOrderEvent {
     private LocalDateTime creationTime;
-    private Long CustomerID;
+    private Long customerId;
     private List<OrderItem> orderItems;
     private String orderNumber;
 }
