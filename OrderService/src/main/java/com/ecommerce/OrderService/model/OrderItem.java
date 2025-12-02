@@ -1,18 +1,17 @@
-package com.ecommerce.OrderService.dto;
+package com.ecommerce.OrderService.model;
 
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Embeddable
 public class OrderItem {
-    private Long productID;
+    private Long productId;
     private Long quantity;
-    private BigDecimal price;
 }
